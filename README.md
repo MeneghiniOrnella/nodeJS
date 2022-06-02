@@ -23,3 +23,19 @@ fs.writeFileSync('index.txt','escribiendo dentro de index.txt');
 En consola, presionar `CTROL + C`
 ## package.json
 > npm init
+## Instalar Express.js
+> npm install --save express
+```
+const express = require('express');
+const app = express();
+app.use((req, res, next) => {
+    console.log('In the middleware');
+    next();
+});
+app.use((req, res, next) => {
+    console.log('In another middleware');
+    res.send('<h1>Hello Express</h1>');
+});
+const server = http.createServer(app);
+server.listen(3000) // localhost
+```
