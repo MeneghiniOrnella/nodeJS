@@ -1,13 +1,9 @@
 const path = require('path');
-
 const express = require('express');
-
 /* const rootDir = require('../util/path');
 const adminData = require('./admin') */
-
 // 1) const productsController = require('../controllers/shop');
 const shopController = require('../controllers/shop');
-
 const router = express.Router();
 
 // /admin/add-product => GET

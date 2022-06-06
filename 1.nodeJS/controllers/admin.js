@@ -4,9 +4,9 @@ exports.getAddProduct = (req, res, next) => {
     res.render('admin/add-product', {
         pageTitle: 'Add product',
         path: '/admin/add-product',
-        formsCSS: true,
-        productCSS: true,
-        activeAddProduct: true
+        //formsCSS: true,
+        //productCSS: true,
+        //activeAddProduct: true
     });
 };
 
