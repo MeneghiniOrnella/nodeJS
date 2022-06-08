@@ -3,16 +3,24 @@
 <body>
     <%- include('../includes/nav.ejs') %>
     <main>
+        <% if(prods.length >1){ %>
         <div>
-            <% for (let product of prods) { %>
+            <% for(let product of prods){ %>
             <article>
                 <h1 class="product__title"><%= product.title %></h1>
-                <img src="<product.imageUrl %>" alt="<%= product.imageUrl %>">
+                <img src="<product.imageUrl %>" alt="<%= product.title %>">
                 <h4><%= product.price %></h4>
                 <p><%= product.description %></p>
-                <button type="submit">Add product</button>
+                <div>
+                    <%- include('../includes/add-to-cart.ejs', { product: product }) %>
+                </div>
             </article>
             <% } %>
         </div>
+        <% }else{ %>
+            <div>
+                <p>Empty</p>
+            </div>
+        <% } %>
     </main>
 <%- include('../includes/footer.ejs') %>

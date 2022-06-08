@@ -20,7 +20,6 @@ router.get('/add-product', adminController.getAddProduct);
 }); */
 // /admin/products => GET
 router.get('/products', adminController.getProducts);
-
 // /admin/add-product => POST
 router.post('/add-product', adminController.postAddProduct);
 /* router.post('/add-product', (req, res, next) => {
@@ -28,6 +27,9 @@ router.post('/add-product', adminController.postAddProduct);
     products.push({ title: req.body.title });
     res.redirect('/'); 
 }); */
+router.post('/edit-product/:productId', adminController.getEditProduct);
+router.post('/edit-product', adminController.postEditProduct);
+router.post('/delete-product', adminController.postDeleteProduct);
 
 module.exports = router;
 // module.routes = router;

@@ -1,6 +1,1 @@
-[{ 
-    "title": "trousers", 
-    "imageUrl": "img", 
-    "price": "50", 
-    "description": "lorem ipsum" 
-}]
+[{"id":"0.000000000000009","title":"jacket","imageUrl":"imgX","price":"10","description":"lorem ipsum"},{"id":"0.2881790200777119","title":"trousers","imageUrl":"img123456","description":"-","price":"20"}]

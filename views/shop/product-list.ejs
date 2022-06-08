@@ -3,18 +3,22 @@
 <body>
     <%- include('../includes/nav.ejs') %>
     <main>
-        <h1>Products</h1>
-        
-            <div class="products">
-                
-                    <div class="product">
-                        <h3><%= prods.title %></h3>
-                        <h4>prods.precio</h4>
-                        <p>product.description</p>
-                        <button>Add to cart</button>
-                    </div>
-                
+        <% if(prods.length >1){ %>
+        <div>
+            <% for(let product of prods){ %>
+            <article>
+                <h1 class="product__title"><%= product.title %></h1>
+                <img src="<product.imageUrl %>" alt="<%= product.title %>">
+                <h4><%= product.price %></h4>
+                <p><%= product.description %></p>
+                <button type="submit">Add product</button>
+            </article>
+            <% } %>
+        </div>
+        <% }else{ %>
+            <div>
+                <h1>Empty</h1>
             </div>
-        
+        <% } %>
     </main>
 <%- include('../includes/footer.ejs') %>

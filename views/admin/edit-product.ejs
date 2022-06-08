@@ -2,25 +2,30 @@
 </head>
 <body>
     <%- include('../includes/nav.ejs') %>
-    <main>
-        <form action="admin/add-product" method="POST">
-            <div>
-                <label for="title">Title</label>
-                <input type="text" name="title" id="title">
+    <main class="form-edit-add">
+        <form action="/admin/<% if(editing){ %>edit-product<% }else{ %>add-product<% } %>" method="post">
+            <div class="mb-3">
+                <label for="title" class="form-label">Title</label>
+                <input type="text" name="title" id="title" value="<% if(editing){ %><%= product.title %><% } %>" class="form-control">
             </div>
-            <div>
-                <label for="ImageURL">ImageURL</label>
-                <input type="text" name="imageURL" id="imageURL">
+            <div class="mb-3">
+                <label for="imageUrl" class="form-label">Image URL</label>
+                <input type="text" name="imageUrl" id="imageUrl" value="<% if(editing){ %><%= product.imageUrl %><% } %>" class="form-control">
             </div>
-            <div>
-                <label for="price">Price</label>
-                <input type="number" name="price" id="price">
+            <div class="mb-3">
+                <label for="price" class="form-label">Price</label>
+                <input type="text" name="price" id="price" value="<% if(editing){ %><%= product.price %><% } %>" class="form-control">
             </div>
-            <div>
-                <label for="description">Description</label>
-                <textarea name="description" id="description" cols="30" rows="10"></textarea>
+            <div class="mb-3">
+                <label for="description" class="form-label">Description</label>
+                <textarea name="description" id="description" class="form-control" rows="3">
+                    <% if(editing){ %><%= product.description %><% } %>
+                </textarea>
             </div>
-            <button type="submit">Add product</button>
+            <% if(editing){ %>
+                <input type="hidden" value="<%= product.id %>" name="productId">
+            <% } %>
+            <button type="submit"><% if(editing){ %>Update<% }else{ %>Add product<% } %></button>
         </form>
     </main>
 <%- include('../includes/footer.ejs') %>
