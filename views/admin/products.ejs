@@ -6,9 +6,9 @@
         <% if(prods.length >1){ %>
         <div>
             <% for(let product of prods){ %>
-            <article>
-                <h1 class="product__title"><%= product.title %></h1>
-                <img src="<%= product.imageUrl %>" alt="<%= product.imageUrl %>">
+            <!-- <article>
+                <h1><%= product.title %></h1>
+                <img src="" alt="">
                 <h4><%= product.price %></h4>
                 <p><%= product.description %></p>
                 <div>
@@ -16,14 +16,31 @@
                         <input type="hidden" name="productId" value="<%= product.id %>">
                         <button type="submit">Delete product</button>
                     </form>
-                </div>
+                </div> -->
+
+                <div class="card mb-3" style="max-width: 540px;">
+                    <div class="row g-0">
+                      <div class="col-md-4">
+                        <img src="<%= product.imageUrl %>" class="img-fluid rounded-start" alt="<%= product.imageUrl %>">
+                      </div>
+                      <div class="col-md-8">
+                        <div class="card-body">
+                          <h4 class="card-title"><%= product.title %></h4>
+                          <h5 class="card-title"><%= product.price %></h5>
+                          <p class="card-text"><%= product.description %></p>
+                        </div>
+                        <form action="/admin/delete-product" method="post">
+                            <input type="hidden" name="productId" value="<%= product.id %>">
+                            <button type="submit" class="btn btn-danger" type="button" >Delete product</button>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
             </article>
             <% } %>
         </div>
         <% }else{ %>
-            <div>
-                <h1>Empty</h1>
-            </div>
+            <%- include('../includes/else.ejs') %>
         <% } %>
     </main>
 <%- include('../includes/footer.ejs') %>

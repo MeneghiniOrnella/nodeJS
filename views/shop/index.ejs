@@ -7,20 +7,28 @@
         <div>
             <% for(let product of prods){ %>
             <article>
-                <h1 class="product__title"><%= product.title %></h1>
-                <img src="<product.imageUrl %>" alt="<%= product.title %>">
-                <h4><%= product.price %></h4>
-                <p><%= product.description %></p>
-                <div>
-                    <%- include('../includes/add-to-cart.ejs', { product: product }) %>
+                <div class="card mb-3" style="max-width: 540px;">
+                    <div class="row g-0">
+                        <div class="col-md-4">
+                        <img src="<product.imageUrl %>" class="img-fluid rounded-start" alt="<%= product.title %>">
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <h3 class="card-title"><%= product.title %></h3>
+                                <h4 class="card-title"><%= product.price %></h4>
+                                <p class="card-text"><%= product.description %></p>
+                            </div>
+                            <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+                                <button type="button" ><a href="/products/<%= product.id %>" class="btn btn-info">More info</a></button>
+                                <%- include('../includes/add-to-cart.ejs', { product: product })%>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </article>
             <% } %>
         </div>
         <% }else{ %>
-            <div>
-                <p>Empty</p>
-            </div>
+            <%- include('../includes/else.ejs') %>
         <% } %>
     </main>
 <%- include('../includes/footer.ejs') %>

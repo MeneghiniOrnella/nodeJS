@@ -10,15 +10,13 @@
                         <p><%= p.productData.title %> <span class="cart-number"><%= p.qty %></span></p>
                         <form action="/cart-delete-item" method="post">
                             <input type="hidden" value="<%= p.productData.id %>" name="productId">
-                            <button type="submit">Delete</button>
+                            <button type="button" class="btn btn-danger" type="submit">Delete</button>
                         </form>
                     </li>
                 <% }) %>
             </ul>
         <% } else { %>
-            <div>
-                <h1>Empty</h1>
-            </div>
+            <%- include('../includes/else.ejs') %>
         <% } %>
     </main>
 <%- include('../includes/footer.ejs') %>
