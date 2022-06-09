@@ -7,7 +7,17 @@ const router = express.Router();
 
 // /admin/add-product => GET
 router.get('/add-product', adminController.getAddProduct);
-/* router.get('/add-product', (req, res, next) => {
+// /admin/products => GET
+router.get('/products', adminController.getProducts);
+// /admin/add-product => POST
+router.post('/add-product', adminController.postAddProduct);
+
+router.get('/edit-product/:productId', adminController.getEditProduct);
+router.post('/edit-product', adminController.postEditProduct);
+router.post('/delete-product', adminController.postDeleteProduct);
+
+/* /admin/add-product => GET
+    router.get('/add-product', (req, res, next) => {
     1) res.sendFile(path.join(__dirname, '../', 'views', 'add-product.html'));
     res.sendFile(path.join(rootDir, 'views', 'add-product.html'));
     3) res.render('add-product', {
@@ -17,20 +27,15 @@ router.get('/add-product', adminController.getAddProduct);
         productCSS: true,
         activeAddProduct: true
     });
-}); */
-// /admin/products => GET
-router.get('/products', adminController.getProducts);
-// /admin/add-product => POST
-router.post('/add-product', adminController.postAddProduct);
-/* router.post('/add-product', (req, res, next) => {
+});
+/admin/add-product => POST
+ router.post('/add-product', (req, res, next) => {
     1) console.log(req.body);
     products.push({ title: req.body.title });
     res.redirect('/'); 
 }); */
-router.post('/edit-product/:productId', adminController.getEditProduct);
-router.post('/edit-product', adminController.postEditProduct);
-router.post('/delete-product', adminController.postDeleteProduct);
 
 module.exports = router;
+
 // module.routes = router;
 // module.products = products;

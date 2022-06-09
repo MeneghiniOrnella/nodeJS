@@ -21,7 +21,7 @@
                 <div class="card mb-3" style="max-width: 540px;">
                     <div class="row g-0">
                       <div class="col-md-4">
-                        <img src="<%= product.imageUrl %>" class="img-fluid rounded-start" alt="<%= product.imageUrl %>">
+                        <img src="<%= product.imageUrl %>" class="img-fluid rounded-start" alt="<%= product.title %>">
                       </div>
                       <div class="col-md-8">
                         <div class="card-body">
@@ -29,10 +29,13 @@
                           <h5 class="card-title"><%= product.price %></h5>
                           <p class="card-text"><%= product.description %></p>
                         </div>
-                        <form action="/admin/delete-product" method="post">
-                            <input type="hidden" name="productId" value="<%= product.id %>">
-                            <button type="submit" class="btn btn-danger" type="button" >Delete product</button>
-                        </form>
+                        <div>
+                            <a href="/admin/edit-product/<%= product.id %>?edit=true" class="btn btn-primary" role="button">Edit</a>
+                            <form action="/admin/delete-product" method="post">
+                                <input type="hidden" name="productId" value="<%= product.id %>">
+                                <button type="submit" class="btn btn-danger" type="button" >Delete product</button>
+                            </form>
+                        </div>
                       </div>
                     </div>
                   </div>

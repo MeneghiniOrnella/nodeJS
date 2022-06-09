@@ -4,7 +4,7 @@
     <%- include('../includes/nav.ejs') %>
     <main>
         <% if (products.length > 0) { %>
-            <ul>
+            <!-- <ul>
                 <% products.forEach(p => { %>
                     <li>
                         <p><%= p.productData.title %> <span class="cart-number"><%= p.qty %></span></p>
@@ -14,7 +14,21 @@
                         </form>
                     </li>
                 <% }) %>
-            </ul>
+            </ul> -->
+            <ol class="list-group list-group-numbered">
+                <% products.forEach(p => { %>
+                    <li class="list-group-item d-flex justify-content-between align-items-start">
+                        <div class="ms-2 me-auto">
+                            <div class="fw-bold"><%= p.productData.title %></div>
+                            <form action="/cart-delete-item" method="post">
+                                <input type="hidden" value="<%= p.productData.id %>" name="productId">
+                                <button type="button" class="btn btn-danger  btn-sm" type="submit">Delete</button>
+                            </form>
+                        </div>
+                        <span class="badge bg-primary rounded-pill"><%= p.qty %></span>
+                    </li>
+                <% }) %>
+            </ol>
         <% } else { %>
             <%- include('../includes/else.ejs') %>
         <% } %>
