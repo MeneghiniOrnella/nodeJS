@@ -1,5 +1,6 @@
 const fs = require('fs');
-const path = require('path');
+// 1) const path = require('path');
+const db = require('../util/db')
 const Cart = require('./cart');
 
 const p = path.join(
@@ -26,6 +27,20 @@ module.exports = class Product{
         this.description = description;
         this.price = price;
     }
+    // trabajando con MySQL
+    save(){
+
+    }
+    static deleteById(id){
+
+    }
+    static fetchAll(cb){
+        return db.execute('SELECT * FROM products');
+    }
+    static findById(id, cb){
+        
+    }
+    /* 1) trabajando con archivo JSON
     save(){
         getProductsFromFile(products => {
             if(this.id){
@@ -44,7 +59,7 @@ module.exports = class Product{
                     console.log(err);
                 });
             }
-        });
+        }); 
     }
     static deleteById(id){
         getProductsFromFile(products => {
@@ -65,5 +80,5 @@ module.exports = class Product{
             const product = products.find(p => p.id === id);
             cb(product);
         });
-    }
+    } */
 };

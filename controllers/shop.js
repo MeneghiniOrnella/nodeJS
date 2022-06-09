@@ -46,6 +46,19 @@ exports.getProduct = (req,res, next) => {
 /* 1) res.render('shop', {
 2) res.render('shop/product-list', { */
 
+// MySQL
+exports.getIndex = (req,res,next) => {
+    Product.fetchAll()
+        .then(([rows, fieldData]) => {
+            res.render('shop/index', {
+        prods: rows,
+        pageTitle: 'Shop',
+        patth: '/'
+    })
+        })
+        .catch(err => console.log(err));
+};
+/* 1) JSON
 exports.getIndex = (req,res, next) => {
     Product.fetchAll(products => {
         res.render('shop/index',{
@@ -54,7 +67,7 @@ exports.getIndex = (req,res, next) => {
             path: '/'
         });
     });
-};
+}; */
 
 exports.getCart = (req, res, next) => {
     Cart.getCart(cart => {
