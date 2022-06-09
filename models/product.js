@@ -3,11 +3,12 @@ const fs = require('fs');
 const db = require('../util/db')
 const Cart = require('./cart');
 
+/* JSON
 const p = path.join(
     path.dirname(process.mainModule.filename), 
     'data', 
     'products.json'
-);
+); 
 
 const getProductsFromFile = cb => {
     fs.readFile(p, (err, fileContent) => {
@@ -17,7 +18,7 @@ const getProductsFromFile = cb => {
             cb(JSON.parse(fileContent));
         }
     });
-};
+};*/
 
 module.exports = class Product{
     constructor(id, title, imageUrl, description, price){
