@@ -1,6 +1,6 @@
-const fs = require('fs');
-// 1) const path = require('path');
-const db = require('../util/db')
+/* const fs = require('fs');
+const path = require('path'); */
+const db = require('../util/db');
 const Cart = require('./cart');
 
 /* JSON
@@ -9,7 +9,6 @@ const p = path.join(
     'data', 
     'products.json'
 ); 
-
 const getProductsFromFile = cb => {
     fs.readFile(p, (err, fileContent) => {
         if (err){
@@ -18,7 +17,7 @@ const getProductsFromFile = cb => {
             cb(JSON.parse(fileContent));
         }
     });
-};*/
+}; */
 
 module.exports = class Product{
     constructor(id, title, imageUrl, description, price){
@@ -35,10 +34,10 @@ module.exports = class Product{
     static deleteById(id){
 
     }
-    static fetchAll(cb){
+    static fetchAll(){
         return db.execute('SELECT * FROM products');
     }
-    static findById(id, cb){
+    static findById(id){
         
     }
     /* 1) trabajando con archivo JSON
